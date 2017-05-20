@@ -1,0 +1,14 @@
+target
+logs
+WebContent
+\.settings
+\.project
+\.classpath
+\.DS_Store
+\.metadata
+\.idea
+*.iml
+*.class
+*.war
+*.log
+/oss-task/.classpath

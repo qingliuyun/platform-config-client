@@ -1,0 +1,1 @@
+org.springframework.boot.env.EnvironmentPostProcessor=cn.dceast.platform.config.SpringBootEnvironmentAdapter
