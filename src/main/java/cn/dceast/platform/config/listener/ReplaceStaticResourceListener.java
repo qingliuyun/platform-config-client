@@ -65,12 +65,12 @@ public class ReplaceStaticResourceListener implements ServletContextListener {
 
     private Map<String, String> getReplacement(ServletContextEvent sce) {
         String replaceFileStr = sce.getServletContext().getInitParameter("replaceFileStrs"); //替换的属性字段
-        //属性文件，替换属性值的来源。默认读取properties中的值
-        String replaceProperties = sce.getServletContext().getInitParameter("replaceProperties");
-
         if (replaceFileStr == null || "".equals(replaceFileStr.trim())) {
             return null;
         }
+
+        //属性文件，替换属性值的来源。默认读取properties中的值
+        String replaceProperties = sce.getServletContext().getInitParameter("replaceProperties");
 
         String splitStr = ",";//分隔符
         String[] attributes = replaceFileStr.split(splitStr);
