@@ -60,6 +60,7 @@ public class HttpClientPlugin {
     /**
      * 生产HttpClient实例
      * 公开，静态的工厂方法，需要使用时才去创建该单体
+     * @return CloseableHttpClient
      */
     public static CloseableHttpClient getHttpClient() {
         if (httpClient == null) {
@@ -72,9 +73,11 @@ public class HttpClientPlugin {
      * POST请求
      * 1. 接收json参数
      * 2. 可传入header参数
-     * @param apiUrl
-     * @param jsonStr
-     * @return
+     * @param apiUrl apiUrl
+     * @param jsonStr jsonStr
+     * @param header header
+     * @param encoding encoding
+     * @return String
      */
     public static String doPost(String apiUrl, String jsonStr, Map<String,Object> header, String encoding) {
         String result = "";
@@ -143,11 +146,11 @@ public class HttpClientPlugin {
 
     /**
      *
-     * @param url
-     * @param httpConnectionTimeout
-     * @param headers
-     * @param encoding
-     * @return
+     * @param url url
+     * @param httpConnectionTimeout httpConnectionTimeout
+     * @param headers headers
+     * @param encoding encoding
+     * @return String
      */
     public static String doGet(String url, int httpConnectionTimeout, Header[] headers, String encoding){
         CloseableHttpClient httpClient = getHttpClient();

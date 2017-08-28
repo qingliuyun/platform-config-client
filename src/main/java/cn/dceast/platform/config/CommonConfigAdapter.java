@@ -35,7 +35,7 @@ public class CommonConfigAdapter {
     /**
      * 根据环境变量，读取属性配置文件
      *
-     * @return
+     * @return Properties
      */
     public Properties readPropertiesByEnvironment() {
         String adapterConfigPlace = System.getenv(Constants.CONFIG_CENTER_ENABLE);

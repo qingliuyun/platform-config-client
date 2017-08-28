@@ -17,7 +17,7 @@ public class ConfigHandler {
 
     /**
      * 从配置中心读取配置信息
-     * @return
+     * @return Properties
      */
     public static Properties loadFromConfigCenter() {
         //下面的环境变量在部署的时候都写在容器的环境变量中，可以直接使用
