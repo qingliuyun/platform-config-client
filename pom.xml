@@ -11,6 +11,34 @@
     <name>platform-config-client</name>
     <description>client of oss config center, adapter for properties/yaml of local,</description>
 
+    <url>https://github.com/qingliuyun</url>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>zhangweilai</name>
+            <email>zhangweilai@126.com</email>
+            <organization>qingliuyun</organization>
+            <organizationUrl>http://www.qingliuyun.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>
+            scm:https://github.com/qingliuyun/platform-config-client.git
+        </connection>
+        <developerConnection>
+            scm:git:https://github.com/qingliuyun/platform-config-client.git
+        </developerConnection>
+        <url>https://github.com/qingliuyun/platform-config-client</url>
+        <tag>v2.3.0</tag>
+    </scm>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -66,6 +94,17 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <resources>
             <resource>
@@ -80,6 +119,56 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>false</skip>
                 </configuration>
             </plugin>
         </plugins>
