@@ -5,7 +5,7 @@
 
     <groupId>cn.dceast.platform</groupId>
     <artifactId>platform-config-client</artifactId>
-    <version>2.3.0</version>
+    <version>2.6.0</version>
     <packaging>jar</packaging>
 
     <name>platform-config-client</name>
