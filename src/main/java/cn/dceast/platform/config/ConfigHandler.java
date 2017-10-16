@@ -13,7 +13,7 @@ import java.util.Properties;
  * 这个类是从配置中心拉取配置的工具类
  */
 public class ConfigHandler {
-    public static String CONFIG_MAP_URL = "%s/api/configs.do?env=%s&projectName=%s&profileName=%s";
+    public static String CONFIG_MAP_URL = "%s/api/configs.do?projectName=%s&profileName=%s";
 
     /**
      * 从配置中心读取配置信息
@@ -22,12 +22,12 @@ public class ConfigHandler {
     public static Properties loadFromConfigCenter() {
         //下面的环境变量在部署的时候都写在容器的环境变量中，可以直接使用
         String configCenterHost = System.getenv("CONFIG_CENTER_HOST");
-        String env = System.getenv("CONFIG_ENV");
-        String projectName = System.getenv("PROJECT_NAME");
-        String profileName = System.getenv("PROFILE_NAME");
-        String secretKey = System.getenv("SECRET_KEY");
+        //String env = System.getenv("CONFIG_ENV");
+        String projectName = System.getenv("CONFIG_PROJECT_NAME");
+        String profileName = System.getenv("CONFIG_PROFILE_NAME");
+        String secretKey = System.getenv("CONFIG_SECRET_KEY");
 
-        String url = String.format(CONFIG_MAP_URL, new Object[]{configCenterHost, env, projectName, profileName});
+        String url = String.format(CONFIG_MAP_URL, new Object[]{configCenterHost, projectName, profileName});
         Header[] headers = new Header[]{new BasicHeader("secretKey", secretKey)};
         String response = HttpClientPlugin.doGet(url, 3000, headers, null);
         RtnData rtnData = JSONObject.parseObject(response, RtnData.class);

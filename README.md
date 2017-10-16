@@ -48,8 +48,7 @@
 ####  应用详情页面设置环境变量
       *  CONFIG_CENTER_ENABLE = true 开启从配置中心读配置
       *  CONFIG_CENTER_HOST = "http://221.178.232.93:86/oss-config-center" 配置中心的host
-      *  CONFIG_ENV = "dev"  项目环境  dev, test, product
-      *  PROJECT_NAME = "demo-huajian"  项目名称
-      *  PROFILE_NAME = "profile03"  配置组名称
-      *  SECRET_KEY = "rh2p6w6sgas" 配置组安全key
+      *  CONFIG_PROJECT_NAME = "demo-huajian"  项目名称
+      *  CONFIG_PROFILE_NAME = "profile03"  配置组名称
+      *  CONFIG_SECRET_KEY = "rh2p6w6sgas" 配置组安全key
 
